@@ -1,0 +1,70 @@
+explanation of code for # 14
+
+Step 4: Fourth Iteration (i = 3)
+
+At this point, the state of our variables is as follows:
+
+    arr (the original array): [1, 2, 3, 2, 1, 4, 5, 4]
+    nonDups (the array we are building): [1, 2, 3] (contains unique values added so far)
+
+We are on the fourth element of the arr array, so:
+
+    i = 3
+    arr[i] = 2
+
+Now Let's Dive Deeper:
+1. nonDups.indexOf(arr[i]):
+
+    What is indexOf(arr[i])?
+        indexOf() is a method that searches for the first occurrence of a specific value in an array and returns its index.
+        If the value exists in the array, it returns the index (position) where it first appears.
+        If the value does not exist, it returns -1.
+
+    In this iteration, arr[i] is 2. We want to check if 2 is already in the nonDups array.
+
+javascript
+
+nonDups.indexOf(2)
+
+2. nonDups = [1, 2, 3]:
+
+    At this point, the nonDups array already contains the values [1, 2, 3] from previous iterations.
+
+    The indexOf(2) call checks if the value 2 is in the nonDups array.
+
+    nonDups.indexOf(2) returns 1 because the value 2 is already in the array at index 1 (the second position in nonDups).
+
+3. nonDups.indexOf(arr[i]) === -1 Check:
+
+    Now, let's look at the condition:
+
+javascript
+
+if (nonDups.indexOf(arr[i]) === -1) {
+
+    nonDups.indexOf(arr[i]) evaluates to 1 because 2 is already in nonDups at index 1.
+    The condition 1 === -1 is false because 1 is not equal to -1.
+
+4. What Does This Mean?
+
+    Since the condition nonDups.indexOf(arr[i]) === -1 is false, the code inside the if block does not run.
+    We do not add 2 to the nonDups array because the value 2 is already there.
+
+This check ensures that duplicates are not added to the nonDups array. Because the value 2 already exists in nonDups, it prevents us from adding it again.
+Why We Don’t Add 2 Again:
+
+    The purpose of the function is to create a new array, nonDups, that contains only unique values from the original array.
+    In this iteration, we skip adding 2 because we have already added it during an earlier iteration (specifically during the second iteration).
+    The check nonDups.indexOf(arr[i]) === -1 prevents us from adding duplicates.
+
+    Recap:
+
+    In the fourth iteration, arr[i] = 2.
+    We check if 2 already exists in nonDups by using indexOf(2), which returns 1 (meaning 2 is found at index 1).
+    Since the result is not -1, the condition nonDups.indexOf(arr[i]) === -1 is false.
+    Therefore, we skip adding 2 again to the nonDups array.
+
+Conclusion:
+
+This step ensures that duplicates are not added to the nonDups array. In this specific case, 
+because 2 was already added during the second iteration, we don't add it again during the fourth iteration.
